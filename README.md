@@ -1,6 +1,24 @@
 # TUI-CPP - LLaMA.cpp Server Manager
 
+<img src='https://github.com/fabiomatricardi/multi-model-llama-server-TUI/raw/main/interface.png' width=1000>
+
 A Text User Interface (TUI) application for managing llama.cpp server on Windows.
+
+built with <img src='https://opencode.ai/docs/_astro/logo-light.B0yzR0O5.svg' height=30>
+
+Model: Zen GLM4.7 free
+Prompt:
+```markdown
+create a python CLI app, to resemble the opencode text GUI. The app is called "TUI-CPP" and allows the user to start and stop
+llama.cpp server (through popen command using the windows llama.cpp binaries, do that the porcess ID can be set to stop it
+when the user request the server to be stopped). The user must be able to select the model from a list (all the GGUF files
+present in the subfolder '/models'). The user shall be able to set  the context window
+(min 4096, max 65536 tokens, with changes of 1024). A status bar at the top will display the RAM used by the loaded
+model in Mb (the process ID is to be used for this feature). At the bottom another status message area will display the logs
+(server started/stopped). I want to be able to create in the end a standalone executable of this python app, using pyinstaller.
+Do not include '/models' and the llama-server.exe in the pyinstaller script. Make sure that the python app consider
+llama-server.exe to be in current path of the app, and the 'models' subfolder as a relative path to the main app path.
+```
 
 ## Features
 
@@ -114,13 +132,13 @@ TUI-CPP/
 
 ```
 +-------------------------------------------------------+
-| Header: TUI-CPP - LLaMA.cpp Server Manager           |
+| Header: TUI-CPP - LLaMA.cpp Server Manager            |
 +-------------------------------------------------------+
-| RAM Usage: XXX.XX MB | Status: Running/Stopped      |
+| RAM Usage: XXX.XX MB | Status: Running/Stopped        |
 +-------------------------------------------------------+
 | Left Column              |  Right Column              |
 |                          |                            |
-| Context Window           |  Select Model:              |
+| Context Window           |  Select Model:             |
 | (4096-65536, step 1024)  |  +----------------------+  |
 | [Input: 4096]            |  | model1.gguf          |  |
 | [Hint: Valid: 4096]      |  | model2.gguf          |  |
@@ -132,7 +150,7 @@ TUI-CPP/
 | Log: Model: model1.gguf                               |
 | Log: Context size: 4096 tokens                        |
 +-------------------------------------------------------+
-| Footer: Ctrl+/: Command Palette  |  q: Quit          |
+| Footer: Ctrl+/: Command Palette  |  q: Quit           |
 +-------------------------------------------------------+
 ```
 
@@ -187,5 +205,8 @@ TUI-CPP/
 - Context window size must be between 4096 and 65536 tokens
 - Context window size must be a multiple of 1024
 - The app automatically clamps invalid context sizes to nearest valid value
+
+<img src='https://github.com/fabiomatricardi/multi-model-llama-server-TUI/raw/main/interface-autoadjust.png' width=800>
+
 - The application uses `sys.executable` to correctly resolve paths when running from PyInstaller
 - An optional icon file (`llama.ico`) can be placed in the build directory for custom executable icon

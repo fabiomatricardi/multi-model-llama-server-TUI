@@ -1,0 +1,3 @@
+@echo off
+echo Starting TUI-CPP...
+python tui_cpp.py

@@ -20,6 +20,10 @@ Do not include '/models' and the llama-server.exe in the pyinstaller script. Mak
 llama-server.exe to be in current path of the app, and the 'models' subfolder as a relative path to the main app path.
 ```
 
+Entire session (**40k tokens**) can be read [here](https://github.com/fabiomatricardi/multi-model-llama-server-TUI/raw/python/session-ses_432f.md)
+
+---
+
 ## Features
 
 - Start and stop llama.cpp server
